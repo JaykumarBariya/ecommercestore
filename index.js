@@ -1,3 +1,4 @@
+const cors = require("cors");
 let express = require("express");
 let mongoose = require("mongoose");
 let bodyparser = require("body-parser");
@@ -8,6 +9,7 @@ app.use(express.json());//our website uses json data
 app.use(bodyparser.json({limit:'50mb'}));
 app.use(bodyparser.urlencoded({limit:'50mb',extended:true}));
 
+app.use(cors());
 //for calling angular we have to open our api..
 app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Origin", "*");
