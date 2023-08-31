@@ -10,8 +10,9 @@ app.use(bodyparser.urlencoded({limit:'50mb',extended:true}));
 
 //for calling angular we have to open our api..
 app.use((req,res,next)=>{
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "*");
+    res.header("Access-Control-Allow-Origin","*");
+    res.header("Access-Control-Allow-Methods","GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers","Content-Type");
     if (req.method == "OPTIONS") 
     {
         res.header("Access Control-Allow-Methods","POST,GET,PUT,PATCH,DELETE");
